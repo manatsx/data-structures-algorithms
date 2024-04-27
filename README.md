@@ -1,5 +1,7 @@
 # Data Structures and Algorithms
 
+[master-the-coding-interview-data-structures-algorithms](https://www.udemy.com/course/master-the-coding-interview-data-structures-algorithms)
+
 <p align="center">
   <img src="./docs/big-O-notation.png" alt="Big O notation">
 </p>
