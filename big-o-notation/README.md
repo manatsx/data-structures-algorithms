@@ -1,3 +1,7 @@
+# Big O notation
+
+[What-is-the-difference-between-big-oh-big-omega-and-big-theta-notations](https://www.quora.com/What-is-the-difference-between-big-oh-big-omega-and-big-theta-notations)
+
 ## O(1) - Tiempo constante (Constant time)
 
 ```go
