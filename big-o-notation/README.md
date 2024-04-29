@@ -1,4 +1,4 @@
-## O(1) - Tiempo constante
+## O(1) - Tiempo constante (Constant time)
 
 ```go
 func sayHi(name string) string {
@@ -6,7 +6,7 @@ func sayHi(name string) string {
 }
 ```
 
-## O(n) - Tiempo lineal
+## O(n) - Tiempo lineal (Linear time)
 
 ```go
 func sum(num int) int {
