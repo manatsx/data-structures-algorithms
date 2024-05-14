@@ -13,8 +13,7 @@ public class Program
 
     public static bool HasPairWithSum(int[] arr, int sum) {
         HashSet<int> mySet = new HashSet<int>();
-        int len = arr.Length;
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < arr.Length; i++) {
             if (mySet.Contains(arr[i])) {
                 return true;
             }
