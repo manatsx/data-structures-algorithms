@@ -15,7 +15,7 @@ func NewArray() *Array {
 	}
 }
 
-func (a *Array) Len() int {
+func (a *Array) Size() int {
 	l := 0
 	for range a.data {
 		l++
@@ -43,6 +43,15 @@ func (a *Array) GetAll() []string {
 	return value
 }
 
+func (a *Array) Contains(element string) bool {
+	for _, v := range a.data {
+		if v == element {
+			return true
+		}
+	}
+	return false
+}
+
 func main() {
 
 	arr := NewArray()
@@ -52,8 +61,8 @@ func main() {
 	arr.Insert("Adis Abeba")
 
 	fmt.Printf("City: %s\n", arr.Get(2))
-	fmt.Printf("Total of elements: %d\n", arr.Len())
+	fmt.Printf("Total of elements: %d\n", arr.Size())
 
 	fmt.Println(arr.GetAll())
-
+	fmt.Println(arr.Contains("Marsella"))
 }
