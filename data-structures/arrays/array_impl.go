@@ -32,11 +32,25 @@ func (a *Array) Insert(item string) {
 	a.length++
 }
 
+func (a *Array) GetAll() []string {
+	// value es un slice donde el primer elemento es un array de string,
+	// el cero indica el valor en que iniciamos el slice,
+	// y el len sera el tamaño del slice en base a los datos guardados
+	value := make([]string, 0, len(a.data))
+	for _, v := range a.data {
+		value = append(value, v)
+	}
+	return value
+}
+
 func main() {
 
 	arr := NewArray()
 	arr.Insert("Lisboa")
 	arr.Insert("Buenos Aires")
+	arr.Insert("New Orleans")
 	fmt.Printf("arr element: %s\narr len: %d\n", arr.Get(0), arr.Len())
+
+	fmt.Println(arr.GetAll())
 
 }
