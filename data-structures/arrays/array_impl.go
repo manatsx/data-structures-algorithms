@@ -2,48 +2,41 @@ package main
 
 import "fmt"
 
-type Array[T any] struct {
-	Elements []T
-	Length   int
+type Array struct {
+	data   map[int]string
+	length int
 }
 
 // Crea una nueva instancia de un array
-func NewArray[T any](elements []T) *Array[T] {
-	return &Array[T]{
-		Elements: elements,
-		Length:   0,
+func NewArray() *Array {
+	return &Array{
+		data:   make(map[int]string),
+		length: 0,
 	}
 }
 
-func (a *Array[T]) Len() int {
+func (a *Array) Len() int {
 	l := 0
-	for range a.Elements {
+	for range a.data {
 		l++
 	}
 	return l
 }
 
-func (a *Array[T]) Get(item int) T {
-	return a.Elements[item]
+func (a *Array) Get(item int) string {
+	return a.data[item]
 }
 
-func (a *Array[T]) Append(item T) {
-	a.Elements[a.Length] = item
-	a.Length++
+func (a *Array) Insert(item string) {
+	a.data[a.length] = item
+	a.length++
 }
 
 func main() {
-	intArray := NewArray([]int{1, 2, 3, 4, 5})
-	strArray := NewArray([]string{"a", "b", "c"})
-	fmt.Printf("intArray: %d\nstrArray: %s\n", intArray.Elements[2], strArray.Elements[1])
-	fmt.Printf("intArray length: %d\nstrArray length: %d\n", intArray.Len(), strArray.Len())
-
-	intArray2 := NewArray([]int{1, 2, 3, 4, 5})
-	strArray2 := NewArray([]string{"a", "b", "c"})
-	fmt.Printf("intArray: %d\nstrArray: %s\n", intArray2.Get(2), strArray2.Get(1))
-	fmt.Printf("intArray length: %d\nstrArray length: %d\n", intArray2.Len(), strArray2.Len())
 
 	arr := NewArray()
-	arr.Append("Lisboa")
+	arr.Insert("Lisboa")
+	arr.Insert("Buenos Aires")
+	fmt.Printf("arr element: %s\narr len: %d\n", arr.Get(0), arr.Len())
 
 }
