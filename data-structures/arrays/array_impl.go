@@ -49,7 +49,10 @@ func main() {
 	arr.Insert("Lisboa")
 	arr.Insert("Buenos Aires")
 	arr.Insert("New Orleans")
-	fmt.Printf("arr element: %s\narr len: %d\n", arr.Get(0), arr.Len())
+	arr.Insert("Adis Abeba")
+
+	fmt.Printf("City: %s\n", arr.Get(2))
+	fmt.Printf("Total of elements: %d\n", arr.Len())
 
 	fmt.Println(arr.GetAll())
 
