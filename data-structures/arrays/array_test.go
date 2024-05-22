@@ -1,34 +1,73 @@
 package arrays
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestArray(t *testing.T) {
-	// Test NewArray and Insert
+// Prueba para NewArray
+func TestNewArray(t *testing.T) {
 	arr := NewArray()
-	arr.Insert("Lisboa")
-	arr.Insert("Buenos Aires")
-	arr.Insert("New Orleans")
-	arr.Insert("Adis Abeba")
-	if arr.Size() != 4 {
-		t.Errorf("Expected size 4, got %d", arr.Size())
+	if arr.Size() != 0 || len(arr.elements) != 0 {
+		t.Errorf("Error en NewArray. Se esperaba size=0 y elements=[], pero se obtuvo size=%d y elements=%v", arr.Size(), arr.elements)
 	}
+}
 
-	// Test Get
-	if arr.Get(0) != "Lisboa" || arr.Get(1) != "Buenos Aires" || arr.Get(2) != "New Orleans" || arr.Get(3) != "Adis Abeba" {
-		t.Errorf("Get method is not working correctly")
+// Prueba para Size
+func TestSizeArray(t *testing.T) {
+	arr := NewArray()
+	arr.Insert("hello")
+	if arr.Size() != 1 {
+		t.Errorf("Error en Size. Se esperaba size=1, pero se obtuvo size=%d", arr.Size())
 	}
+}
 
-	// Test GetAll
+// Prueba para Get
+func TestGetArray(t *testing.T) {
+	arr := NewArray()
+	arr.Insert("hello")
+	if arr.Get(0) != "hello" {
+		t.Errorf("Error en Get. Se esperaba 'hello', pero se obtuvo %s", arr.Get(0))
+	}
+}
+
+// Prueba para Insert
+func TestInsertArray(t *testing.T) {
+	arr := NewArray()
+	arr.Insert("hello")
+	if arr.Size() != 1 || arr.Get(0) != "hello" {
+		t.Errorf("Error en Insert. Se esperaba size=1 y el primer elemento='hello', pero se obtuvo size=%d y primer elemento=%s", arr.Size(), arr.Get(0))
+	}
+}
+
+// Prueba para GetAll
+func TestGetAllArray(t *testing.T) {
+	arr := NewArray()
+	arr.Insert("hello")
+	arr.Insert("world")
 	all := arr.GetAll()
-	if len(all) != 4 || all[0] != "Lisboa" || all[1] != "Buenos Aires" || all[2] != "New Orleans" || all[3] != "Adis Abeba" {
-		t.Errorf("GetAll method is not working correctly")
+	if len(all) != 2 || all[0] != "hello" || all[1] != "world" {
+		t.Errorf("Error en GetAll. Se esperaba ['hello', 'world'], pero se obtuvo %v", all)
 	}
+}
 
-	// Test Contains
-	if !arr.Contains("Lisboa") || !arr.Contains("Buenos Aires") || !arr.Contains("New Orleans") || !arr.Contains("Adis Abeba") {
-		t.Errorf("Contains method is not working correctly")
+// Prueba para Contains
+func TestContainsArray(t *testing.T) {
+	arr := NewArray()
+	arr.Insert("hello")
+	if !arr.Contains("hello") {
+		t.Errorf("Error en Contains. Se esperaba true para 'hello', pero se obtuvo false")
 	}
-	if arr.Contains("Marsella") {
-		t.Errorf("Contains method is returning true for a value that was not inserted")
+	if arr.Contains("world") {
+		t.Errorf("Error en Contains. Se esperaba false para 'world', pero se obtuvo true")
+	}
+}
+
+// Prueba para Clear
+func TestClearArray(t *testing.T) {
+	arr := NewArray()
+	arr.Insert("hello")
+	arr.Clear()
+	if arr.Size() != 0 || len(arr.elements) != 0 {
+		t.Errorf("Error en Clear. Se esperaba size=0 y elements=[], pero se obtuvo size=%d y elements=%v", arr.Size(), arr.elements)
 	}
 }
