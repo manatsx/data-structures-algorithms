@@ -18,10 +18,10 @@ func (a *ArrrayList[T]) Get(index int) T {
 	return a.elements[index]
 }
 
-// func (a *ArrrayList[T]) Insert(values T) {
-// 	a.elements[a.size] = values
-// 	a.size++
-// }
+func (a *ArrrayList[T]) Insert(values T) {
+	a.elements = append(a.elements, values)
+	a.size++
+}
 
 func (a *ArrrayList[T]) Add(values ...T) {
 	for _, value := range values {
@@ -32,12 +32,14 @@ func (a *ArrrayList[T]) Add(values ...T) {
 
 func main() {
 	arr := NewArrayList[string]()
-	arr.Add("hello")
-	arr.Add("paris")
-	fmt.Println(arr.Get(1))
+	arr.Add("hello", "paris", "oxido")
+	arr.Insert("foo")
+	fmt.Println(arr.Get(2))
+	fmt.Println(arr.Get(3))
 
 	arr1 := NewArrayList[int]()
-	arr1.Add(15)
-	arr1.Add(3)
-	fmt.Println(arr1.Get(1))
+	arr1.Add(15, 3)
+	arr1.Insert(23)
+
+	fmt.Println(arr1.Get(2))
 }
