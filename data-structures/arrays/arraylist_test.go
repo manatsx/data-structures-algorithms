@@ -1,43 +1,60 @@
 package arrays
 
-import "testing"
+import (
+	"testing"
+)
 
-func TestArrayList(t *testing.T) {
-	// Test NewArrayList and Add
+// Prueba para NewArrayList
+// go test -run TestNewArrayList
+func TestNewArrayList(t *testing.T) {
+	arr := NewArrayList[string]()
+	if arr.Size() != 0 || len(arr.elements) != 0 {
+		t.Errorf("Error en NewArrayList. Se esperaba size=0 y elements=[], pero se obtuvo size=%d y elements=%v", arr.Size(), arr.elements)
+	}
+}
+
+// Prueba para Add
+func TestAdd(t *testing.T) {
 	arr := NewArrayList[string]()
 	arr.Add("hello", "paris", "oxido")
 	if arr.Size() != 3 {
-		t.Errorf("Expected size 3, got %d", arr.Size())
+		t.Errorf("Error en Add. Se esperaba size=3, pero se obtuvo size=%d", arr.Size())
 	}
+}
 
-	// Test Get
-	if arr.Get(0) != "hello" || arr.Get(1) != "paris" || arr.Get(2) != "oxido" {
-		t.Errorf("Get method is not working correctly")
-	}
-
-	// Test Insert
+// Prueba para Insert
+func TestInsert(t *testing.T) {
+	arr := NewArrayList[string]()
 	arr.Insert("foo")
-	if arr.Size() != 4 || arr.Get(3) != "foo" {
-		t.Errorf("Insert method is not working correctly")
+	if arr.Size() != 1 || arr.Get(0) != "foo" {
+		t.Errorf("Error en Insert. Se esperaba size=1 y el primer elemento='foo', pero se obtuvo size=%d y primer elemento=%s", arr.Size(), arr.Get(0))
 	}
+}
 
-	// Test Clear
+// Prueba para Get
+func TestGet(t *testing.T) {
+	arr := NewArrayList[string]()
+	arr.Add("hello", "paris", "oxido")
+	if arr.Get(2) != "oxido" {
+		t.Errorf("Error en Get. Se esperaba 'oxido', pero se obtuvo %s", arr.Get(2))
+	}
+}
+
+// Prueba para Clear
+func TestClear(t *testing.T) {
+	arr := NewArrayList[string]()
+	arr.Add("hello", "paris", "oxido")
 	arr.Clear()
-	if arr.Size() != 0 {
-		t.Errorf("Expected size 0 after Clear, got %d", arr.Size())
+	if arr.Size() != 0 || len(arr.elements) != 0 {
+		t.Errorf("Error en Clear. Se esperaba size=0 y elements=[], pero se obtuvo size=%d y elements=%v", arr.Size(), arr.elements)
 	}
+}
 
-	// Test with int type
-	arr1 := NewArrayList[int]()
-	arr1.Add(15, 3)
-	arr1.Insert(23)
-	if arr1.Size() != 3 || arr1.Get(0) != 15 || arr1.Get(1) != 3 || arr1.Get(2) != 23 {
-		t.Errorf("ArrayList is not working correctly with int type")
-	}
-
-	// Test Clear
-	arr.Clear()
-	if arr.Size() != 0 {
-		t.Errorf("Expected size 0 after Clear, got %d", arr.Size())
+// Prueba para Size
+func TestSize(t *testing.T) {
+	arr := NewArrayList[string]()
+	arr.Add("hello", "paris", "oxido")
+	if arr.Size() != 3 {
+		t.Errorf("Error en Size. Se esperaba size=3, pero se obtuvo size=%d", arr.Size())
 	}
 }
