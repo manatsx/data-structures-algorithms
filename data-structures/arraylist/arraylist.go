@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type ArrayList[T comparable] struct {
 	elements []T
 	size     int
@@ -34,18 +32,18 @@ func (a *ArrayList[T]) Size() int {
 	return a.size
 }
 
-func main() {
-	arr := NewArrayList[string]()
-	arr.Add("hello", "paris", "oxido")
-	arr.Insert("foo")
-	fmt.Println(arr.Get(2))
-	fmt.Println(arr.Get(3))
-	fmt.Printf("Total elements arr string: %d\n", arr.Size())
+// func main() {
+// 	arr := NewArrayList[string]()
+// 	arr.Add("hello", "paris", "oxido")
+// 	arr.Insert("foo")
+// 	fmt.Println(arr.Get(2))
+// 	fmt.Println(arr.Get(3))
+// 	fmt.Printf("Total elements arr string: %d\n", arr.Size())
 
-	arr1 := NewArrayList[int]()
-	arr1.Add(15, 3)
-	arr1.Insert(23)
+// 	arr1 := NewArrayList[int]()
+// 	arr1.Add(15, 3)
+// 	arr1.Insert(23)
 
-	fmt.Println(arr1.Get(2))
-	fmt.Printf("Total elements arr int: %d\n", arr1.Size())
-}
+// 	fmt.Println(arr1.Get(2))
+// 	fmt.Printf("Total elements arr int: %d\n", arr1.Size())
+// }
