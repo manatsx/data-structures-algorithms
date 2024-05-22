@@ -21,11 +21,23 @@ func TestArrayList(t *testing.T) {
 		t.Errorf("Insert method is not working correctly")
 	}
 
+	// Test Clear
+	arr.Clear()
+	if arr.Size() != 0 {
+		t.Errorf("Expected size 0 after Clear, got %d", arr.Size())
+	}
+
 	// Test with int type
 	arr1 := NewArrayList[int]()
 	arr1.Add(15, 3)
 	arr1.Insert(23)
 	if arr1.Size() != 3 || arr1.Get(0) != 15 || arr1.Get(1) != 3 || arr1.Get(2) != 23 {
 		t.Errorf("ArrayList is not working correctly with int type")
+	}
+
+	// Test Clear
+	arr.Clear()
+	if arr.Size() != 0 {
+		t.Errorf("Expected size 0 after Clear, got %d", arr.Size())
 	}
 }

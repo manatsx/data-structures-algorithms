@@ -28,6 +28,11 @@ func (a *ArrayList[T]) Add(values ...T) {
 	}
 }
 
+func (a *ArrayList[T]) Clear() {
+	a.size = 0
+	a.elements = []T{}
+}
+
 func (a *ArrayList[T]) Size() int {
 	return a.size
 }
@@ -46,4 +51,13 @@ func (a *ArrayList[T]) Size() int {
 
 // 	fmt.Println(arr1.Get(2))
 // 	fmt.Printf("Total elements arr int: %d\n", arr1.Size())
+
+// 	fmt.Printf("arr: %+v\n", arr)
+// 	fmt.Printf("arr1: %+v\n", arr1)
+
+// 	arr.Clear()
+// 	arr1.Clear()
+
+// 	fmt.Printf("arr clear: %+v\n", arr)
+// 	fmt.Printf("arr1 clear: %+v\n", arr1)
 // }
