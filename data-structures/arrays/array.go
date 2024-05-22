@@ -1,7 +1,5 @@
 package arrays
 
-import "fmt"
-
 type Array struct {
 	data   map[int]string
 	length int
@@ -52,17 +50,17 @@ func (a *Array) Contains(element string) bool {
 	return false
 }
 
-func main() {
+// func main() {
 
-	arr := NewArray()
-	arr.Insert("Lisboa")
-	arr.Insert("Buenos Aires")
-	arr.Insert("New Orleans")
-	arr.Insert("Adis Abeba")
+// 	arr := NewArray()
+// 	arr.Insert("Lisboa")
+// 	arr.Insert("Buenos Aires")
+// 	arr.Insert("New Orleans")
+// 	arr.Insert("Adis Abeba")
 
-	fmt.Printf("City: %s\n", arr.Get(2))
-	fmt.Printf("Total of elements: %d\n", arr.Size())
+// 	fmt.Printf("City: %s\n", arr.Get(2))
+// 	fmt.Printf("Total of elements: %d\n", arr.Size())
 
-	fmt.Println(arr.GetAll())
-	fmt.Println(arr.Contains("Marsella"))
-}
+// 	fmt.Println(arr.GetAll())
+// 	fmt.Println(arr.Contains("Marsella"))
+// }
