@@ -2,32 +2,36 @@ package main
 
 import "fmt"
 
-type ArrrayList[T comparable] struct {
+type ArrayList[T comparable] struct {
 	elements []T
 	size     int
 }
 
-func NewArrayList[T comparable](values ...T) *ArrrayList[T] {
-	return &ArrrayList[T]{
-		elements: make([]T, 0),
+func NewArrayList[T comparable](values ...T) *ArrayList[T] {
+	return &ArrayList[T]{
+		elements: []T{},
 		size:     0,
 	}
 }
 
-func (a *ArrrayList[T]) Get(index int) T {
+func (a *ArrayList[T]) Get(index int) T {
 	return a.elements[index]
 }
 
-func (a *ArrrayList[T]) Insert(values T) {
-	a.elements = append(a.elements, values)
+func (a *ArrayList[T]) Insert(value T) {
+	a.elements = append(a.elements, value)
 	a.size++
 }
 
-func (a *ArrrayList[T]) Add(values ...T) {
+func (a *ArrayList[T]) Add(values ...T) {
 	for _, value := range values {
 		a.elements = append(a.elements, value)
 		a.size++
 	}
+}
+
+func (a *ArrayList[T]) Size() int {
+	return a.size
 }
 
 func main() {
@@ -36,10 +40,12 @@ func main() {
 	arr.Insert("foo")
 	fmt.Println(arr.Get(2))
 	fmt.Println(arr.Get(3))
+	fmt.Printf("Total elements arr string: %d\n", arr.Size())
 
 	arr1 := NewArrayList[int]()
 	arr1.Add(15, 3)
 	arr1.Insert(23)
 
 	fmt.Println(arr1.Get(2))
+	fmt.Printf("Total elements arr int: %d\n", arr1.Size())
 }
