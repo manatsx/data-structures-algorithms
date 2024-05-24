@@ -51,6 +51,29 @@ func (a *Array) Clear() {
 	a.size = 0
 }
 
+// Elimina el ultimo elemento del array
+func (a *Array) Pop() string {
+	// lastItem es el ultimo elemento del array
+	lastItem := a.elements[a.size-1]
+	// del elemento del array se borra el ultimo elemento
+	delete(a.elements, a.size-1)
+	// el tamaño de array disminuye
+	a.size--
+
+	// se devuelve el ultimo elemento
+	return lastItem
+}
+
+// Find devuelve el primer elemento que cumple con la condición especificada
+func (a *Array) Find(condition func(string) bool) (string, bool) {
+	for _, v := range a.elements {
+		if condition(v) {
+			return v, true
+		}
+	}
+	return "", false
+}
+
 // func main() {
 
 // 	arr := NewArray()
@@ -58,10 +81,19 @@ func (a *Array) Clear() {
 // 	arr.Insert("Buenos Aires")
 // 	arr.Insert("New Orleans")
 // 	arr.Insert("Adis Abeba")
-
 // 	fmt.Printf("City: %s\n", arr.Get(2))
 // 	fmt.Printf("Total of elements: %d\n", arr.Size())
-
 // 	fmt.Println(arr.GetAll())
 // 	fmt.Println(arr.Contains("Marsella"))
+
+// 	// Encuentra el primer elemento que tenga más de 6 caracteres
+// 	element, found := arr.Find(func(s string) bool {
+// 		return s == "Adis Abeba"
+// 	})
+
+// 	if found {
+// 		fmt.Printf("Elemento encontrado: %s\n", element)
+// 	} else {
+// 		fmt.Println("No se encontró ningún elemento que cumpla con la condición.")
+// 	}
 // }
