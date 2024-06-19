@@ -23,7 +23,7 @@ export class MyArray<T> {
     }
     const lastItem = this.element[this.size - 1];
     this.size--;
-    this.element.length = this.size; // Adjust length of array
+    this.element.length = this.size;
     return lastItem;
   }
 
@@ -31,8 +31,7 @@ export class MyArray<T> {
     const item = this.element[index];
     this.shiftItems(index);
     this.size--;
-    this.element.length = this.size; // Adjust the array length
-    return item;
+    this.element.length = this.size;
   }
 
   private shiftItems(index: number) {
