@@ -9,3 +9,4 @@ console.log(myArray);
 console.log(myArray.get(2));
 // myArray.pop();
 console.log(myArray);
+console.log(myArray.length());
