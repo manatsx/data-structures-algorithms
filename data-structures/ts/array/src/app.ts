@@ -10,3 +10,5 @@ console.log(myArray.get(2));
 // myArray.pop();
 console.log(myArray);
 console.log(myArray.length());
+// myArray.delete(0);
+console.log(myArray);
