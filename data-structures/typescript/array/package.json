@@ -2,9 +2,10 @@
   "name": "array",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "main.ts",
   "scripts": {
-    "start": "nodemon --exec ts-node src/app.ts"
+    "dev": "tsnd --respawn --clear src/main.ts",
+    "start": "nodemon --exec ts-node src/main.ts"
   },
   "keywords": [],
   "author": "",
