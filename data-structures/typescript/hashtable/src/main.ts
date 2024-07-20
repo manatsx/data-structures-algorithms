@@ -12,6 +12,6 @@ console.log(myHashTable.key());
 // console.log(myHashTable.get("grapes"));
 
 const fRc = firstRecurringCharacter([1, 2, 3, 4, 5]);
-const fRc2 = firstRecurringCharacter([1, 1, 5, 5, 1, 3, 4, 6]); // el 2 se repite secuencialmente..
+const fRc2 = firstRecurringCharacter([1, 1, 5, 5, 1, 3, 4, 6]); // el 1 es el primer numero recurrente (que se repite)
 console.log(fRc);
 console.log(fRc2);
