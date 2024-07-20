@@ -49,4 +49,14 @@ export class HashTable {
     }
     return undefined; // Si la clave no se encuentra, devolvemos undefined.
   }
+
+  public key() {
+    const keyArrays = [];
+    for (let index = 0; index < this.data.length; index++) {
+      if (this.data[index]) {
+        keyArrays.push(this.data[index][0][0]);
+      }
+    }
+    return keyArrays;
+  }
 }
