@@ -26,6 +26,38 @@ class LinkedList
         this.head = newNode;
     }
 
+    public void insertAtIndex(string data, int index)
+    {
+        if (index < 0)
+        {
+            throw new ArgumentOutOfRangeException("index", "Index cannot be negative.");
+        }
+
+        if (index == 0)
+        {
+            insertAtBegin(data);
+            return;
+        }
+
+        Node newNode = new Node(data);
+        Node current = this.head;
+        int position = 0;
+
+        while (current != null && position < index - 1)
+        {
+            current = current.next;
+            position++;
+        }
+
+        if (current == null)
+        {
+            throw new ArgumentOutOfRangeException("index", "Index is out of bounds.");
+        }
+
+        newNode.next = current.next;
+        current.next = newNode;
+    }
+
     public override string ToString()
     {
         Node current = this.head;
