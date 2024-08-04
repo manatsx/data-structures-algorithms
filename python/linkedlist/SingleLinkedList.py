@@ -11,13 +11,14 @@ class SingleLinkedList:
     def __init__(self) -> None:
         self.head: Node | None = None  # El primer nodo (head) puede ser un nodo o None
 
-    # Método para agregar un nodo al principio de la lista enlazada
     def insertAtBeginning(self, new_data: str) -> None:
+        """Insertar un nodo al inicio de una lista enlazada"""
         new_node = Node(new_data)  # Crea un nuevo nodo
-        new_node.next = self.head  # El siguiente nodo del nuevo nodo (new_node.next) será la cabeza actual (self.head)
+        new_node.next = self.head  # El siguiente nodo del nuevo nodo (new_node.next) será el  primer nodo actual (self.head)
         self.head = new_node  # La cabeza de la lista (self.head) ahora es el nuevo nodo (new_node)
 
     def insertAtEnd(self, new_data: str) -> None:
+        """Insertar un nodo al final de una lista enlazada"""
         new_node = Node(new_data)  # Crea un nuevo nodo con el dato recibido
         if self.head is None:  # Si la lista está vacía (es decir, no existe el primer nodo de la lista) 
             self.head = new_node # Entonces el nuevo nodo se convierte en el primer nodo (head)
@@ -27,6 +28,18 @@ class SingleLinkedList:
         while last.next: # Recorremos la lista, el bucle continua mientras last.next no sea None
             last = last.next # Se actualiza last para que apunte al siguiente nodo en la lista (last = last.next)
         last.next = new_node # El siguiente nodo del último nodo ahora es el nuevo nodo
+
+    # Eliminar el primer nodo de una lista enlazada es fácil, ya que solo implica apuntar el encabezado de esta lista al segundo nodo. 
+    # De esta manera, el primer nodo ya no formará parte de la lista.
+    def deleteFromBeginning(self) -> str | None:
+        """Eliminar un nodo del comienzo de una lista enlazada"""
+        if self.head is None: # Si la lista es vacia retorna el siguiente mensaje
+            return "The list is empty"
+        self.head = self.head.next  # De lo contrario, retire el primer nodo (self.head) haciendo que el siguiente nodo (self.head.next) sea el primer nodo (self.head)
+    
+    def deleteFromEnd(self) -> str | None:
+        if self.head is None: # Si la lista es vacia retorna el siguiente mensaje
+            return "The list is empty"
 
 
     def insertAtIndex(self, data: str, index: int):
