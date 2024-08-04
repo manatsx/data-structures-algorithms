@@ -35,31 +35,35 @@ class SingleLinkedList:
         """Eliminar un nodo del comienzo de una lista enlazada"""
         if self.head is None: # Si la lista es vacia retorna el siguiente mensaje
             return "The list is empty"
+        
+        removed_data = self.head.data # self.head.data accede al valor almacenado en el primer nodo de la lista
         self.head = self.head.next  # De lo contrario, retire el primer nodo (self.head) haciendo que el siguiente nodo (self.head.next) sea el primer nodo (self.head)
+        return removed_data
     
     def deleteFromEnd(self) -> str | None:
         if self.head is None: # Si la lista es vacia retorna el siguiente mensaje
             return "The list is empty"
         
-        if self.head.next is None:
-            self.head = None
+        if self.head.next is None: # Si solo hay un nodo en la lista
+            self.head = None # La lista queda vacia
             return
         
-        temp = self.head
+        temp = self.head # temp es un puntero temporal que apunta al primer nodo de la lista
+        # Se recorre la lista hasta llegar al penúltimo nodo. Esto se logra verificando que temp.next.next no sea None. Cuando temp.next.next es None, temp está en el penúltimo nodo
         while temp.next.next:
             temp = temp.next
-        temp.next = None
+        temp.next = None # Una vez que temp está en el penúltimo nodo, se elimina el último nodo estableciendo temp.next a None
 
-    def insertAtIndex(self, data: str, index: int):
-        if index == 0:
-            self.insertAtBeginning(data)
-            return
+    # def insertAtIndex(self, data: str, index: int):
+    #     if index == 0:
+    #         self.insertAtBeginning(data)
+    #         return
         
-        position = 0
-        curr = self.head
-        while curr is not None and position < index - 1:
-            position+=1
-            curr = curr.next
+    #     position = 0
+    #     curr = self.head
+    #     while curr is not None and position < index - 1:
+    #         position+=1
+    #         curr = curr.next
 
 
     def __repr__(self):
