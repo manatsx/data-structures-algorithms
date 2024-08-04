@@ -1,5 +1,7 @@
 # LinkedList
 
+- ![linked-lists](https://realpython.com/linked-lists-python/)
+
 ## Comprensión de las listas enlazadas
 
 Las listas enlazadas son una colección ordenada de objetos. ¿Qué las diferencia de las listas normales? Las listas enlazadas se diferencian de las listas en la forma en que almacenan elementos en la memoria. Mientras que las listas utilizan un bloque de memoria contiguo para almacenar referencias a sus datos, las listas enlazadas almacenan referencias como parte de sus propios elementos
