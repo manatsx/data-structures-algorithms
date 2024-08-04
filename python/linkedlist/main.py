@@ -10,8 +10,8 @@ class LinkedList:
         self.head = None  # Inicializar la cabeza de la lista como None
 
     # Método para agregar un nodo al principio de la lista enlazada
-    def insertAtBegin(self, data):
-        new_node = Node(data)  # Crear un nuevo nodo
+    def insertAtBegin(self, new_data):
+        new_node = Node(new_data)  # Crear un nuevo nodo
         new_node.next = self.head  # El siguiente nodo del nuevo nodo será la cabeza actual
         self.head = new_node  # La cabeza de la lista ahora es el nuevo nodo
 
@@ -39,7 +39,7 @@ class LinkedList:
     # Método para agregar un nodo al final de la lista enlazada
     def insertAtEnd(self, data):
         new_node = Node(data)  # Crear un nuevo nodo
-        if self.head is None:  # Si la lista está vacía, el nuevo nodo será la cabeza
+        if self.head is None:  #  # Si la lista está vacía (es decir, no existe el primer nodo de la lista), entonces el nuevo nodo se convierte en el head (primer nodo)
             self.head = new_node
             return
 
