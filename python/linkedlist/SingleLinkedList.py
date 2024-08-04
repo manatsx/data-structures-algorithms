@@ -40,7 +40,15 @@ class SingleLinkedList:
     def deleteFromEnd(self) -> str | None:
         if self.head is None: # Si la lista es vacia retorna el siguiente mensaje
             return "The list is empty"
-
+        
+        if self.head.next is None:
+            self.head = None
+            return
+        
+        temp = self.head
+        while temp.next.next:
+            temp = temp.next
+        temp.next = None
 
     def insertAtIndex(self, data: str, index: int):
         if index == 0:
