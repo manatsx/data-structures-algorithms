@@ -1,6 +1,8 @@
 # LinkedList
 
-- ![linked-lists](https://realpython.com/linked-lists-python/)
+- [linked-lists](https://realpython.com/linked-lists-python/)
+
+- [python-linked-lists](https://www.datacamp.com/es/tutorial/python-linked-lists)
 
 ## Comprensión de las listas enlazadas
 
