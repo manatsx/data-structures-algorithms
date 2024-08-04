@@ -54,16 +54,15 @@ class SingleLinkedList:
             temp = temp.next
         temp.next = None # Una vez que temp está en el penúltimo nodo, se elimina el último nodo estableciendo temp.next a None
 
-    # def insertAtIndex(self, data: str, index: int):
-    #     if index == 0:
-    #         self.insertAtBeginning(data)
-    #         return
-        
-    #     position = 0
-    #     curr = self.head
-    #     while curr is not None and position < index - 1:
-    #         position+=1
-    #         curr = curr.next
+    def search(self, value):
+        current = self.head  # Current es el primer nodo de la lista
+        position = 0  # Counter 
+        while current: # Traverse the list
+            if current.data == value: # Compare the list's data to the search value
+                return f"Value '{value}' found at position {position}" # Print the value if a match is found
+            current = current.next
+            position += 1
+        return f"Value '{value}' not found in the list"  
 
 
     def __repr__(self):
@@ -74,13 +73,7 @@ class SingleLinkedList:
             node = node.next
         nodes.append("None")
         return " -> ".join(nodes)
-    
-    # def printList(self):
-    #     temp = self.head # Start from the head of the list
-    #     while temp:
-    #         print(temp.data,end=' ') # Print the data in the current node
-    #         temp = temp.next # Move to the next node
-    #     print()  # Ensures the output is followed by a new line
+   
     
 
 if __name__ == "__main__" :
@@ -94,4 +87,23 @@ if __name__ == "__main__" :
 
     # Insertar dato al final
     ll.insertAtEnd('jumps') # the -> quick -> brown -> fox -> jumps -> None
+    print("List before deletion:")
     print(ll)
+
+    # Eliminando nodos al inicio y fin
+    ll.deleteFromBeginning()
+    ll.deleteFromEnd()
+
+    print("List after deletion:")
+    print(ll)
+     
+    print(ll.search('brown'))  
+    print(ll.search('fox'))   
+
+    # Result
+    # List before deletion:
+    # the -> quick -> brown -> fox -> jumps -> None
+    # List after deletion:
+    # quick -> brown -> fox -> None
+    # Value 'brown' found at position 1
+    # Value 'fox' found at position 2
