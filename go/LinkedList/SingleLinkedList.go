@@ -14,11 +14,31 @@ type SingleLinkedList struct {
 	head *Node
 }
 
+func NewNode(data string) *Node {
+	return &Node{data: data, next: nil}
+}
+
 // InsertAtBeginning inserts a new node at the beginning of the list
 func (slk *SingleLinkedList) InsertAtBeginning(newData string) {
-	newNode := &Node{data: newData, next: nil}
+	newNode := NewNode(newData)
 	newNode.next = slk.head
 	slk.head = newNode
+}
+
+func (slk *SingleLinkedList) InsertAtEnd(newData string) {
+	newNode := NewNode(newData)
+
+	if slk.head == nil {
+		slk.head = newNode
+		return
+	}
+
+	last := slk.head
+	for last.next != nil {
+		last = last.next
+	}
+	last.next = newNode
+
 }
 
 // String provides a string representation of the list
@@ -40,6 +60,7 @@ func main() {
 	ll.InsertAtBeginning("brown")
 	ll.InsertAtBeginning("quick")
 	ll.InsertAtBeginning("the")
+	ll.InsertAtEnd("jumps")
 
 	// Imprimir la lista para verificar que los elementos se insertaron correctamente
 	fmt.Println(ll)
