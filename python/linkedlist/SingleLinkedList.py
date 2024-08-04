@@ -7,17 +7,17 @@ class Node:
 
 # Clase que representa mi LinkedList (Lista enlazada)
 # Esto encapsulará todas las operaciones para administrar los nodos, como la inserción y la eliminación
-class LinkedList:
+class SingleLinkedList:
     def __init__(self) -> None:
-        self.head = None
+        self.head: Node | None = None  # El primer nodo (head) puede ser un nodo o None
 
     # Método para agregar un nodo al principio de la lista enlazada
-    def insertAtBeginning(self, new_data):
+    def insertAtBeginning(self, new_data: str) -> None:
         new_node = Node(new_data)  # Crea un nuevo nodo
         new_node.next = self.head  # El siguiente nodo del nuevo nodo (new_node.next) será la cabeza actual (self.head)
         self.head = new_node  # La cabeza de la lista (self.head) ahora es el nuevo nodo (new_node)
 
-    def insertAtEnd(self, new_data):
+    def insertAtEnd(self, new_data: str) -> None:
         new_node = Node(new_data)  # Crea un nuevo nodo con el dato recibido
         if self.head is None:  # Si la lista está vacía (es decir, no existe el primer nodo de la lista) 
             self.head = new_node # Entonces el nuevo nodo se convierte en el primer nodo (head)
@@ -59,15 +59,14 @@ class LinkedList:
     
 
 if __name__ == "__main__" :
-    ll = LinkedList()
-    # ll.insertAtBeginning("Buenos Aires")
-    # ll.insertAtBeginning("Quindy")
-    # ll.insertAtBeginning("Berlin")
+    ll = SingleLinkedList()
+
+    # Insertar dato al inicio
     ll.insertAtBeginning('fox') 
     ll.insertAtBeginning('brown') 
     ll.insertAtBeginning('quick')  
     ll.insertAtBeginning('the')
 
+    # Insertar dato al final
     ll.insertAtEnd('jumps') # the -> quick -> brown -> fox -> jumps -> None
     print(ll)
-    # ll.printList()
