@@ -1,3 +1,0 @@
-# Array
-
-run `pnpm start`
