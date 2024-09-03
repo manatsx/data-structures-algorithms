@@ -167,15 +167,6 @@ export class LinkedList<T> implements ILinkedList<T> {
     this.tail = null;
     this.length = 0;
   }
-
-  InsertAtBeginning(value: T): void {
-    this.unshift(value);
-  }
-
-  InsertAtEnd(value: T): void {
-    this.push(value);
-  }
-
   toString(): string {
     const nodes: string[] = [];
     let current = this.head;

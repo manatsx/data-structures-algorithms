@@ -20,6 +20,4 @@ export interface ILinkedList<T> {
   insert(index: number, value: T): boolean | ILinkedList<T>;
   size(): number;
   clear(): void;
-  InsertAtBeginning(value: T): void;
-  InsertAtEnd(value: T): void;
 }
