@@ -33,16 +33,27 @@ export class MyArray<T> implements MyArrayType<T> {
   }
 
   shift(): T | undefined {
+    // Si el array está vacío, no hay nada que eliminar, retornamos undefined
     if (this.length === 0) return undefined;
+
+    // Guardamos el primer elemento en la variable `firstItem`
     const firstItem = this.data[0];
 
+    // Reindexación: movemos todos los elementos una posición hacia adelante
+    // Este ciclo comienza en el primer elemento (índice 0) y termina en el penúltimo
     for (let i = 0; i < this.length - 1; i++) {
+      // Desplazamos el valor del índice siguiente (i + 1) al índice actual (i)
       this.data[i] = this.data[i + 1];
     }
 
+    // Después de reindexar, el último elemento ahora está duplicado,
+    // por lo que eliminamos el último elemento (en la posición this.length - 1)
     delete this.data[this.length - 1];
+
+    // Reducimos manualmente la longitud del array en 1, ya que hemos eliminado un elemento
     this.length--;
 
+    // Retornamos el primer elemento que fue eliminado, almacenado en `firstItem`
     return firstItem;
   }
 
