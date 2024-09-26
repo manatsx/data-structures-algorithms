@@ -32,7 +32,7 @@ export class LinkedList<T> implements ILinkedList<T> {
     // Si la lista está vacía (head es null),
     if (!this.head) {
       this.head = newNode; // asigna el nuevo nodo como head,
-      this.tail = newNode; // y como tail también.
+      this.tail = newNode; // asigna el nuevo nodo como tail
     } else {
       // Si la lista no está vacía,
       this.tail!.next = newNode; // conecta el último nodo actual al nuevo nodo,
