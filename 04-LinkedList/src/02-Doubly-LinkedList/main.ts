@@ -182,4 +182,20 @@ export class DoublyLinkedList<T> implements ILinkedList<T> {
     this.tail = null; // Eliminamos la referencia a la cola
     this.length = 0; // Reiniciamos la longitud
   }
+
+  // Método para convertir la lista en una cadena de texto
+  toString(): string {
+    const nodes: string[] = []; // Array para almacenar los valores de los nodos.
+    let current = this.head; // Comienza desde el head.
+
+    // Recorre la lista y agrega los valores al array de nodos
+    while (current) {
+      nodes.push(String(current.value)); // Convierte el valor del nodo a string y lo agrega al array.
+      current = current.next; // Avanza al siguiente nodo.
+    }
+
+    // Agrega "null" al final para indicar el final de la lista y une los nodos en una cadena
+    nodes.push("null");
+    return nodes.join(" <-> "); // Utiliza "<->" para representar la conexión doble entre los nodos.
+  }
 }
