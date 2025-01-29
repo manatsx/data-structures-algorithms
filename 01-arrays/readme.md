@@ -18,6 +18,36 @@ const arr = ["Bogotá", "Lima", "Asunción", "Buenos Aires"];
 
 ---
 
+## Tipos de Arrays: Dinámicos y Estáticos
+
+### Array Dinámico
+
+En JavaScript, los arrays son dinámicos por defecto. Esto significa que pueden crecer o reducirse en tamaño dinámicamente al agregar o eliminar elementos.
+
+```js
+const arr = ["Bogotá", "Lima"];
+arr.push("Asunción"); // Agrega un elemento
+console.log(arr); // ["Bogotá", "Lima", "Asunción"]
+arr.pop(); // Elimina el último elemento
+console.log(arr); // ["Bogotá", "Lima"]
+```
+
+### Array Estático
+
+Los arrays estáticos tienen un tamaño fijo y no se pueden redimensionar. Aunque JavaScript no tiene arrays estáticos de forma nativa, se pueden simular mediante la inicialización de un array con un tamaño fijo y limitando las operaciones que modifican su longitud.
+
+```js
+const staticArray = new Array(3); // Array con tamaño fijo de 3
+staticArray[0] = "Bogotá";
+staticArray[1] = "Lima";
+staticArray[2] = "Asunción";
+console.log(staticArray); // ["Bogotá", "Lima", "Asunción"]
+// Intentar agregar más elementos:
+staticArray[3] = "Buenos Aires"; // No es una operación válida si queremos mantener un array estático
+```
+
+---
+
 ## Operaciones comunes en Arrays
 
 ### 1. **Acceso** a elementos por índice
@@ -47,8 +77,8 @@ console.log(arr); // ["Bogotá", "Santiago", "Asunción", "Buenos Aires"]
   ```
 - **Al inicio** del array:
   ```js
-  arr.unshift("La Paz");
-  console.log(arr); // ["La Paz", "Bogotá", "Santiago", "Asunción", "Buenos Aires", "Montevideo"]
+  arr.unshift("Caracas");
+  console.log(arr); // ["Caracas", "Bogotá", "Santiago", "Asunción", "Buenos Aires", "Montevideo"]
   ```
 
 ### 4. **Eliminar elementos**
