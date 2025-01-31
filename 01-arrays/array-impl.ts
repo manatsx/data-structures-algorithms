@@ -3,6 +3,7 @@ interface MyArrayInterface<T> {
   get(index: number): T | string;
   set(index: number, value: T): string | void;
   pop(): T | undefined;
+  delete(index: number): T | undefined;
 }
 
 class MyArray<T> implements MyArrayInterface<T> {
