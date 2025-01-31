@@ -1,7 +1,6 @@
 interface MyArrayInterface<T> {
   push(value: T): void;
   get(index: number): T | string;
-  set(index: number, value: T): string | void;
   pop(): T | undefined;
   delete(index: number): T | undefined;
 }
@@ -23,11 +22,6 @@ class MyArray<T> implements MyArrayInterface<T> {
   get(index: number) {
     if (index < 0 || index >= this.length) return "Index out of range";
     return this.data[index];
-  }
-
-  set(index: number, value: T) {
-    if (index < 0 || index >= this.length) return "Index out of range";
-    this.data[index] = value;
   }
 
   pop() {
@@ -56,14 +50,14 @@ class MyArray<T> implements MyArrayInterface<T> {
 }
 
 const arr = new MyArray();
-arr.push("Lima");
-arr.push("La Paz");
-arr.push("octocat");
+arr.push("Elon Musk");
+arr.push("Mark Zuckerberg");
+arr.push("GeeksforGeeks");
 
 console.log(arr.get(2));
-arr.set(3, "Asuncion");
-arr.push("Santiago");
-arr.push("MetaCat");
+
+arr.push("Reverse a String in JavaScript");
+arr.push("OpenAI");
 arr.push("DeepSeek");
 console.log(arr);
 arr.delete(2);
