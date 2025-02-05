@@ -1,5 +1,7 @@
 # HashMap 📚
 
+[docu](https://en.wikipedia.org/wiki/Hash_table)
+
 Un **HashMap** (o **Mapa Hash**) es una estructura de datos que almacena pares de clave-valor. Permite acceder a los valores de manera rápida utilizando una clave única. Es como un diccionario: buscas una palabra (clave) y obtienes su definición (valor).
 
 ---

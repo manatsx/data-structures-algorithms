@@ -3,7 +3,8 @@
     "array": "ts-node 01-arrays/arrays.ts",
     "array-impl": "ts-node 01-arrays/array-impl.ts",
     "contains-duplicate": "ts-node 01-arrays/containsDuplicates.ts",
-    "reverse-string": "ts-node 01-arrays/reverseString.ts"
+    "reverse-string": "ts-node 01-arrays/reverseString.ts",
+    "merge-sorted-array": "ts-node 01-arrays/mergeSortedArrays.ts"
   },
   "devDependencies": {
     "@types/node": "^22.10.10",
