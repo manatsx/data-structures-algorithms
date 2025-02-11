@@ -31,7 +31,7 @@ function firstRecurringCharacter2(input) {
   return undefined;
 }
 
-firstRecurringCharacter2([1, 5, 5, 1, 3, 4, 6]);
+console.log(firstRecurringCharacter2([1, 5, 5, 1, 3, 4, 6]));
 
 //Bonus... What if we had this:
 // [2,5,5,2,3,5,1,2,4]
