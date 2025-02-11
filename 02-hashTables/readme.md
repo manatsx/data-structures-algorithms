@@ -2,6 +2,8 @@
 
 [docu](https://en.wikipedia.org/wiki/Hash_table)
 
+[hash table js](https://www.educative.io/blog/data-strucutres-hash-table-javascript)
+
 Un **HashMap** (o **Mapa Hash**) es una estructura de datos que almacena pares de clave-valor. Permite acceder a los valores de manera rápida utilizando una clave única. Es como un diccionario: buscas una palabra (clave) y obtienes su definición (valor).
 
 ---
